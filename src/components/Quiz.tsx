@@ -78,13 +78,13 @@ const Quiz: React.FC = () => {
   }, [currentQuestion, setContextCurrentQuestion]);
 
   useEffect(() => {
-    if (timeLeft > 0 && !showResult && !quizCompleted && quizQuestions.length > 0) {
+    if (timeLeft > 0 && !showResult && !quizCompleted && !showWelcome && quizQuestions.length > 0) {
       const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
       return () => clearTimeout(timer);
-    } else if (timeLeft === 0 && !showResult && quizQuestions.length > 0) {
+    } else if (timeLeft === 0 && !showResult && !showWelcome && quizQuestions.length > 0) {
       handleTimeUp();
     }
-  }, [timeLeft, showResult, quizCompleted, quizQuestions.length]);
+  }, [timeLeft, showResult, quizCompleted, showWelcome, quizQuestions.length]);
 
   const handleTimeUp = () => {
     setShowResult(true);
@@ -234,15 +234,15 @@ const Quiz: React.FC = () => {
             <div className="bg-yellow-100/80 rounded-xl p-6 space-y-2">
               <div className="flex items-center justify-center space-x-2 text-gray-700">
                 <span className="text-2xl">⏱️</span>
-                <span className="font-semibold">20 randomized questions</span>
+                <span className="font-semibold">20 questions</span>
               </div>
               <div className="flex items-center justify-center space-x-2 text-gray-700">
                 <span className="text-2xl">🎯</span>
                 <span className="font-semibold">30 seconds per question</span>
               </div>
               <div className="flex items-center justify-center space-x-2 text-gray-700">
-                <span className="text-2xl">🔄</span>
-                <span className="font-semibold">New questions every time</span>
+                <span className="text-2xl">🎓</span>
+                <span className="font-semibold">Test your knowledge</span>
               </div>
             </div>
             <button

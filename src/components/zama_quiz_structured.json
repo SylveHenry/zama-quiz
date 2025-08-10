@@ -1,8 +1,8 @@
 {
   "quiz_metadata": {
     "title": "Zama Fully Homomorphic Encryption Quiz",
-    "total_questions": 20,
-    "unique_questions": 20,
+    "total_questions": 21,
+    "unique_questions": 21,
     "subject": "Blockchain Privacy and Fully Homomorphic Encryption",
     "difficulty": "Intermediate"
   },
@@ -33,137 +33,473 @@
         }
       ],
       "correct_answer": "Fully Homomorphic Encryption",
-      "explanation": "FHE stands for Fully Homomorphic Encryption, which allows computation on encrypted data."
+      "explanation": "This is a form of encryption that allows computation directly on encrypted data without needing to decrypt it first."
     },
     {
       "id": 2,
-      "question_text": "What is Zama primarily known for in blockchain privacy?",
+      "question_text": "Zama's FHEVM is built to be compatible with?",
       "options": [
         {
           "id": "A",
-          "text": "Zero-Knowledge Rollups",
+          "text": "Bitcoin Script",
           "is_correct": false
         },
         {
           "id": "B",
-          "text": "Fully Homomorphic Encryption (FHE)",
+          "text": "Solidity and Ethereum tooling",
           "is_correct": true
         },
         {
           "id": "C",
-          "text": "Proof-of-Stake consensus",
+          "text": "Rust contracts",
           "is_correct": false
         },
         {
           "id": "D",
-          "text": "Decentralized Storage",
+          "text": "C++ modules",
           "is_correct": false
         }
       ],
-      "correct_answer": "Fully Homomorphic Encryption (FHE)",
-      "explanation": "Zama is primarily known for pioneering Fully Homomorphic Encryption solutions in the blockchain space."
+      "correct_answer": "Solidity and Ethereum tooling",
+      "explanation": "Zama's FHEVM integrates seamlessly with Ethereum's existing developer ecosystem, allowing Solidity developers to build encrypted smart contracts without learning a new language."
     },
     {
       "id": 3,
-      "question_text": "Which Zama product allows developers to write confidential smart contracts in Solidity?",
+      "question_text": "Which type of encryption allows computations to be performed on encrypted data without decrypting it?",
       "options": [
         {
           "id": "A",
-          "text": "FHEVM",
-          "is_correct": true
+          "text": "Symmetric Encryption",
+          "is_correct": false
         },
         {
           "id": "B",
-          "text": "ZK-EVM",
-          "is_correct": false
-        },
-        {
-          "id": "C",
-          "text": "RollupVM",
-          "is_correct": false
-        },
-        {
-          "id": "D",
-          "text": "SecureSol",
-          "is_correct": false
-        }
-      ],
-      "correct_answer": "FHEVM",
-      "explanation": "FHEVM is Zama's product that enables developers to write confidential smart contracts using Solidity."
-    },
-    {
-      "id": 4,
-      "question_text": "On which blockchain is Zama's FHEVM currently implemented?",
-      "options": [
-        {
-          "id": "A",
-          "text": "Ethereum",
-          "is_correct": true
-        },
-        {
-          "id": "B",
-          "text": "Bitcoin",
-          "is_correct": false
-        },
-        {
-          "id": "C",
-          "text": "Solana",
-          "is_correct": false
-        },
-        {
-          "id": "D",
-          "text": "Polygon",
-          "is_correct": false
-        }
-      ],
-      "correct_answer": "Ethereum",
-      "explanation": "Zama's FHEVM is currently implemented on the Ethereum blockchain."
-    },
-    {
-      "id": 5,
-      "question_text": "What does VM stand for in FHEVM?",
-      "options": [
-        {
-          "id": "A",
-          "text": "Virtual Machine",
-          "is_correct": true
-        },
-        {
-          "id": "B",
-          "text": "Verified Mechanism",
-          "is_correct": false
-        },
-        {
-          "id": "C",
-          "text": "Variable Memory",
-          "is_correct": false
-        },
-        {
-          "id": "D",
-          "text": "Value Mapping",
-          "is_correct": false
-        }
-      ],
-      "correct_answer": "Virtual Machine",
-      "explanation": "VM in FHEVM stands for Virtual Machine, similar to EVM (Ethereum Virtual Machine)."
-    },
-    {
-      "id": 6,
-      "question_text": "Which cryptographic technique allows computation on encrypted data?",
-      "options": [
-        {
-          "id": "A",
           "text": "Fully Homomorphic Encryption",
           "is_correct": true
         },
         {
+          "id": "C",
+          "text": "Asymmetric Encryption",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "Zero-Knowledge Proofs",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "Fully Homomorphic Encryption",
+      "explanation": "This is a form of encryption that allows computation directly on encrypted data without needing to decrypt it first."
+    },
+    {
+      "id": 4,
+      "question_text": "Zama's technology enables what kind of smart contracts?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Public by default",
+          "is_correct": false
+        },
+        {
           "id": "B",
-          "text": "Hashing",
+          "text": "Confidential smart contracts",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "Immutable only",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "Stateless contracts",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "Confidential smart contracts",
+      "explanation": "These contracts ensure that both the inputs and outputs remain private, unlike standard Ethereum contracts where all data is public."
+    },
+    {
+      "id": 5,
+      "question_text": "What is the purpose of Zama's custom ZK scheme?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To speed up proving encrypted computations",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "To reduce gas fees for NFTs",
           "is_correct": false
         },
         {
           "id": "C",
-          "text": "Symmetric Encryption",
+          "text": "To mine Bitcoin faster",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "To encrypt private keys",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "To speed up proving encrypted computations",
+      "explanation": "Zama's custom ZK scheme is designed to optimize the proving process for encrypted computations, making them faster and more practical for real-world applications."
+    },
+    {
+      "id": 6,
+      "question_text": "Which is faster in the browser for Zama's needs?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Standard ZK schemes",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "Zama's custom ZK scheme",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "Multi-party computation",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "Post-quantum encryption",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "Zama's custom ZK scheme",
+      "explanation": "This is a specialized zero-knowledge proof design optimized for speed, allowing encrypted computations to be proven much faster than standard schemes."
+    },
+    {
+      "id": 7,
+      "question_text": "Zama's custom ZK scheme generates proofs in?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Hours",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "Minutes",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "Less than 2 seconds",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "30 seconds",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "Less than 2 seconds",
+      "explanation": "Zama's optimized proving system can generate proofs in under two seconds in the browser, compared to tens of seconds for traditional schemes."
+    },
+    {
+      "id": 8,
+      "question_text": "In FHE, what is the encrypted form of data called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ciphertext",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "Plaintext",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "Hashtext",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "Steganotext",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "Ciphertext",
+      "explanation": "This is the encrypted form of data, produced after applying an encryption algorithm to plaintext."
+    },
+    {
+      "id": 9,
+      "question_text": "The FHEVM lets developers write encrypted contracts in?",
+      "options": [
+        {
+          "id": "A",
+          "text": "JavaScript",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "Solidity",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "Go",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "C#",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "Solidity",
+      "explanation": "Zama's FHEVM integrates seamlessly with Ethereum's existing developer ecosystem, allowing Solidity developers to build encrypted smart contracts without learning a new language."
+    },
+    {
+      "id": 10,
+      "question_text": "Which part of the blockchain sees only ciphertext in FHE-based systems?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Miners",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "Validators",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "Frontend developers",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "Node operators",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "Validators",
+      "explanation": "In FHE-based systems, validators process encrypted transactions without ever seeing the raw data."
+    },
+    {
+      "id": 11,
+      "question_text": "What does \"encrypted end-to-end\" mean in Zama's context?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Data is encrypted only when sent",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "Data is encrypted during storage but not processing",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "Data stays encrypted during input, computation, and output",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "Data is decrypted for computation but encrypted in storage",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "Data stays encrypted during input, computation, and output",
+      "explanation": "End-to-end encryption means that data remains encrypted at every stage — input, computation, and output."
+    },
+    {
+      "id": 12,
+      "question_text": "What's a key benefit of confidential smart contracts?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Everyone sees the code and data",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "Reduced transaction count",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "No data leakage during execution",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "Larger block sizes",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "No data leakage during execution",
+      "explanation": "Confidential smart contracts prevent sensitive information from being exposed during execution."
+    },
+    {
+      "id": 13,
+      "question_text": "Which layer is Zama's FHEVM primarily designed for?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Layer 1",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "Layer 2 / EVM-compatible chains",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "Off-chain storage",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "File-sharing networks",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "Layer 2 / EVM-compatible chains",
+      "explanation": "Zama's FHEVM is designed to work on Ethereum-compatible Layer 2 solutions, enabling scalable privacy."
+    },
+    {
+      "id": 14,
+      "question_text": "Zama's tools allow developers to build?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Private DeFi apps",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "Transparent NFTs",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "Static websites",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "Public APIs only",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "Private DeFi apps",
+      "explanation": "Developers can create decentralized finance applications that operate privately without revealing user balances or transactions."
+    },
+    {
+      "id": 15,
+      "question_text": "Which computation model does FHE follow?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Encrypt → Compute → Decrypt",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "Compute → Encrypt → Send",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "Decrypt → Compute → Encrypt",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "Store → Encrypt → Compute",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "Encrypt → Compute → Decrypt",
+      "explanation": "This is the basic workflow of fully homomorphic encryption systems."
+    },
+    {
+      "id": 16,
+      "question_text": "What can Zama's FHEVM enable without revealing user identity?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Token minting",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "Private voting",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "Node syncing",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "Proof-of-work mining",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "Private voting",
+      "explanation": "Zama's technology allows for on-chain governance where votes are cast and counted without revealing voter identities."
+    },
+    {
+      "id": 17,
+      "question_text": "In standard Ethereum contracts, inputs and outputs are?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Encrypted",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "Public",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "Obfuscated",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "Hidden",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "Public",
+      "explanation": "Standard Ethereum contracts have all inputs and outputs visible to everyone on-chain."
+    },
+    {
+      "id": 18,
+      "question_text": "The main cryptographic breakthrough that enables Zama's FHEVM is?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Hash Functions",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "Fully Homomorphic Encryption",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "Symmetric Key Cryptography",
           "is_correct": false
         },
         {
@@ -173,399 +509,91 @@
         }
       ],
       "correct_answer": "Fully Homomorphic Encryption",
-      "explanation": "Fully Homomorphic Encryption is the cryptographic technique that enables computation on encrypted data without decrypting it."
-    },
-    {
-      "id": 7,
-      "question_text": "What is the role of a compiler in Zama's FHEVM?",
-      "options": [
-        {
-          "id": "A",
-          "text": "Encrypts the blockchain",
-          "is_correct": false
-        },
-        {
-          "id": "B",
-          "text": "Translates Solidity into bytecode that supports encrypted variables",
-          "is_correct": true
-        },
-        {
-          "id": "C",
-          "text": "Generates zk-proofs",
-          "is_correct": false
-        },
-        {
-          "id": "D",
-          "text": "Runs validator nodes",
-          "is_correct": false
-        }
-      ],
-      "correct_answer": "Translates Solidity into bytecode that supports encrypted variables",
-      "explanation": "The compiler in FHEVM translates Solidity code into bytecode that can handle encrypted variables and operations."
-    },
-    {
-      "id": 8,
-      "question_text": "Which Zama library is designed for generic FHE applications in Rust?",
-      "options": [
-        {
-          "id": "A",
-          "text": "Concrete",
-          "is_correct": true
-        },
-        {
-          "id": "B",
-          "text": "Hardhat",
-          "is_correct": false
-        },
-        {
-          "id": "C",
-          "text": "Circom",
-          "is_correct": false
-        },
-        {
-          "id": "D",
-          "text": "Noir",
-          "is_correct": false
-        }
-      ],
-      "correct_answer": "Concrete",
-      "explanation": "Concrete is Zama's Rust library designed for building generic FHE applications."
-    },
-    {
-      "id": 9,
-      "question_text": "In FHE, data remains encrypted…",
-      "options": [
-        {
-          "id": "A",
-          "text": "Only during storage",
-          "is_correct": false
-        },
-        {
-          "id": "B",
-          "text": "During computation and storage",
-          "is_correct": true
-        },
-        {
-          "id": "C",
-          "text": "Only during transmission",
-          "is_correct": false
-        },
-        {
-          "id": "D",
-          "text": "Only during input",
-          "is_correct": false
-        }
-      ],
-      "correct_answer": "During computation and storage",
-      "explanation": "The key feature of FHE is that data remains encrypted during both computation and storage phases."
-    },
-    {
-      "id": 10,
-      "question_text": "Which Zama framework is aimed at enabling AI models to run on encrypted data?",
-      "options": [
-        {
-          "id": "A",
-          "text": "Concrete ML",
-          "is_correct": true
-        },
-        {
-          "id": "B",
-          "text": "ZK AI",
-          "is_correct": false
-        },
-        {
-          "id": "C",
-          "text": "TensorProof",
-          "is_correct": false
-        },
-        {
-          "id": "D",
-          "text": "Cryptex",
-          "is_correct": false
-        }
-      ],
-      "correct_answer": "Concrete ML",
-      "explanation": "Concrete ML is Zama's framework that enables AI and machine learning models to operate on encrypted data."
-    },
-    {
-      "id": 11,
-      "question_text": "Which encryption scheme is used in Zama's TFHE variant?",
-      "options": [
-        {
-          "id": "A",
-          "text": "Ring-LWE",
-          "is_correct": true
-        },
-        {
-          "id": "B",
-          "text": "RSA",
-          "is_correct": false
-        },
-        {
-          "id": "C",
-          "text": "ECDSA",
-          "is_correct": false
-        },
-        {
-          "id": "D",
-          "text": "Blowfish",
-          "is_correct": false
-        }
-      ],
-      "correct_answer": "Ring-LWE",
-      "explanation": "Zama's TFHE (Torus Fully Homomorphic Encryption) variant uses the Ring-LWE encryption scheme."
-    },
-    {
-      "id": 12,
-      "question_text": "What is bootstrapping in FHE?",
-      "options": [
-        {
-          "id": "A",
-          "text": "A method to refresh ciphertexts to prevent noise overflow",
-          "is_correct": true
-        },
-        {
-          "id": "B",
-          "text": "Encrypting twice for safety",
-          "is_correct": false
-        },
-        {
-          "id": "C",
-          "text": "Initializing the blockchain",
-          "is_correct": false
-        },
-        {
-          "id": "D",
-          "text": "Setting up validator nodes",
-          "is_correct": false
-        }
-      ],
-      "correct_answer": "A method to refresh ciphertexts to prevent noise overflow",
-      "explanation": "Bootstrapping in FHE is a technique used to refresh ciphertexts and prevent noise accumulation that could compromise decryption."
-    },
-    {
-      "id": 13,
-      "question_text": "Zama's FHEVM variables are encrypted by default using…",
-      "options": [
-        {
-          "id": "A",
-          "text": "Client-side keys",
-          "is_correct": true
-        },
-        {
-          "id": "B",
-          "text": "Server-side hashing",
-          "is_correct": false
-        },
-        {
-          "id": "C",
-          "text": "Blockchain-native private keys",
-          "is_correct": false
-        },
-        {
-          "id": "D",
-          "text": "Shared symmetric keys",
-          "is_correct": false
-        }
-      ],
-      "correct_answer": "Client-side keys",
-      "explanation": "In FHEVM, variables are encrypted using client-side keys, ensuring privacy is maintained at the user level."
-    },
-    {
-      "id": 14,
-      "question_text": "Which Zama component helps prove encryption correctness faster than standard ZK schemes?",
-      "options": [
-        {
-          "id": "A",
-          "text": "Custom ZK Scheme",
-          "is_correct": true
-        },
-        {
-          "id": "B",
-          "text": "PlonK",
-          "is_correct": false
-        },
-        {
-          "id": "C",
-          "text": "Groth16",
-          "is_correct": false
-        },
-        {
-          "id": "D",
-          "text": "Halo2",
-          "is_correct": false
-        }
-      ],
-      "correct_answer": "Custom ZK Scheme",
-      "explanation": "Zama has developed a custom zero-knowledge scheme that proves encryption correctness more efficiently than standard ZK schemes."
-    },
-    {
-      "id": 15,
-      "question_text": "What is the primary advantage of Zama's Custom ZK Scheme over standard ZK schemes?",
-      "options": [
-        {
-          "id": "A",
-          "text": "Shorter proving time",
-          "is_correct": true
-        },
-        {
-          "id": "B",
-          "text": "Larger proof size",
-          "is_correct": false
-        },
-        {
-          "id": "C",
-          "text": "More complex setup",
-          "is_correct": false
-        },
-        {
-          "id": "D",
-          "text": "Lower security",
-          "is_correct": false
-        }
-      ],
-      "correct_answer": "Shorter proving time",
-      "explanation": "The main advantage of Zama's custom ZK scheme is significantly reduced proving time compared to standard schemes."
-    },
-    {
-      "id": 16,
-      "question_text": "What is the average proof generation time in Zama's custom scheme for encryption correctness?",
-      "options": [
-        {
-          "id": "A",
-          "text": "< 2 seconds",
-          "is_correct": true
-        },
-        {
-          "id": "B",
-          "text": "10 seconds",
-          "is_correct": false
-        },
-        {
-          "id": "C",
-          "text": "20 seconds",
-          "is_correct": false
-        },
-        {
-          "id": "D",
-          "text": "Over a minute",
-          "is_correct": false
-        }
-      ],
-      "correct_answer": "< 2 seconds",
-      "explanation": "Zama's custom ZK scheme can generate proofs for encryption correctness in under 2 seconds on average."
-    },
-    {
-      "id": 17,
-      "question_text": "In the FHEVM, which type of data can be encrypted?",
-      "options": [
-        {
-          "id": "A",
-          "text": "Numbers and booleans",
-          "is_correct": true
-        },
-        {
-          "id": "B",
-          "text": "Only integers",
-          "is_correct": false
-        },
-        {
-          "id": "C",
-          "text": "Only strings",
-          "is_correct": false
-        },
-        {
-          "id": "D",
-          "text": "Only addresses",
-          "is_correct": false
-        }
-      ],
-      "correct_answer": "Numbers and booleans",
-      "explanation": "FHEVM supports encryption of both numerical data types and boolean values for confidential computations."
-    },
-    {
-      "id": 18,
-      "question_text": "Zama's FHE technology is resistant to which type of future threat?",
-      "options": [
-        {
-          "id": "A",
-          "text": "Quantum attacks",
-          "is_correct": true
-        },
-        {
-          "id": "B",
-          "text": "SQL injection",
-          "is_correct": false
-        },
-        {
-          "id": "C",
-          "text": "Man-in-the-middle",
-          "is_correct": false
-        },
-        {
-          "id": "D",
-          "text": "Sybil attacks",
-          "is_correct": false
-        }
-      ],
-      "correct_answer": "Quantum attacks",
-      "explanation": "FHE technology is designed to be quantum-resistant, providing security even against future quantum computing threats."
+      "explanation": "This is a form of encryption that allows computation directly on encrypted data without needing to decrypt it first."
     },
     {
       "id": 19,
-      "question_text": "Which Zama product integrates FHE with EVM compatibility?",
+      "question_text": "What is the main drawback of traditional Zero-Knowledge schemes in browsers?",
       "options": [
         {
           "id": "A",
-          "text": "FHEVM",
-          "is_correct": true
-        },
-        {
-          "id": "B",
-          "text": "Concrete ML",
+          "text": "Poor scalability",
           "is_correct": false
         },
         {
+          "id": "B",
+          "text": "Long proof generation times",
+          "is_correct": true
+        },
+        {
           "id": "C",
-          "text": "zkSync",
+          "text": "Weak encryption",
           "is_correct": false
         },
         {
           "id": "D",
-          "text": "StarkNet",
+          "text": "Incompatibility with Solidity",
           "is_correct": false
         }
       ],
-      "correct_answer": "FHEVM",
-      "explanation": "FHEVM is specifically designed to integrate Fully Homomorphic Encryption with Ethereum Virtual Machine compatibility."
+      "correct_answer": "Long proof generation times",
+      "explanation": "Traditional zero-knowledge schemes can take a long time to generate proofs in browsers, making them impractical for real-time applications."
     },
     {
       "id": 20,
-      "question_text": "In FHE, what is 'noise'?",
+      "question_text": "Which type of blockchain contract does Zama aim to replace with confidential smart contracts?",
       "options": [
         {
           "id": "A",
-          "text": "Random error added to ciphertext for security",
-          "is_correct": true
-        },
-        {
-          "id": "B",
-          "text": "Network congestion",
+          "text": "Private by default contracts",
           "is_correct": false
         },
         {
+          "id": "B",
+          "text": "Public-by-default contracts",
+          "is_correct": true
+        },
+        {
           "id": "C",
-          "text": "Code redundancy",
+          "text": "Hybrid contracts",
           "is_correct": false
         },
         {
           "id": "D",
-          "text": "Hash mismatch",
+          "text": "Permissioned contracts",
           "is_correct": false
         }
       ],
-      "correct_answer": "Random error added to ciphertext for security",
-      "explanation": "In FHE, 'noise' refers to intentional random error added to ciphertexts as a security mechanism, though it accumulates during computations."
+      "correct_answer": "Public-by-default contracts",
+      "explanation": "Standard Ethereum contracts have all inputs and outputs visible to everyone on-chain."
+    },
+    {
+      "id": 21,
+      "question_text": "What is one major benefit of Zama's custom ZK scheme?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Runs entirely off-chain",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "Generates proofs in under 2 seconds in browsers",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "Allows offline transactions",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "Works without encryption",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "Generates proofs in under 2 seconds in browsers",
+      "explanation": "Zama's custom ZK scheme is optimized to generate proofs extremely quickly, making it practical for browser-based applications."
     }
   ]
 }

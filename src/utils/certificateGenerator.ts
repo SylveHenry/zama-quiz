@@ -98,7 +98,7 @@ export const downloadCertificate = (dataUrl: string, filename: string = 'zama-pr
 };
 
 export const shareToTwitter = async (score: number, totalQuestions: number, percentage: number, certificateUrl?: string) => {
-  const tweetText = `🎉 Just completed the Zama Privacy Quiz with a score of ${score}/${totalQuestions} (${percentage}%)! 🔐\n\nTest your privacy knowledge and join the FHE revolution! 🚀\n\n@zama_fhe @codedbr0\n\n#ZamaFHE #PrivacyFirst #Cryptography\n\nTake the quiz: ${window.location.origin}`;
+  const tweetText = `🎉 Just completed the Zama Privacy Quiz with a score of ${score}/${totalQuestions} (${percentage}%)! 🔐\n\nTest your privacy knowledge and join the FHE revolution! 🚀\n\n@zama_fhe @Zeusfi_bit\n\n#ZamaFHE #PrivacyFirst #Cryptography\n\nTake the quiz: ${window.location.origin}`;
   
   if (certificateUrl) {
     // Try to use the Web Share API if available (supports images on mobile)
