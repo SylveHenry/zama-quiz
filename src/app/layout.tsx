@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://zama-quiz.vercel.app'),
   title: "Zama Ai Quiz - Test Your Privacy Knowledge",
   description: "Interactive Zama Ai Privacy quiz. Test your knowledge of Zama Protocol.",
   keywords: "zama, privacy, fhe, fully homomorphic encryption, quiz, privacy education, zama protocol",

@@ -153,10 +153,10 @@ const Quiz: React.FC = () => {
   const getScoreMessage = () => {
     const percentage = (score / quizQuestions.length) * 100;
     if (percentage >= 90) return '🚀 Zama Privacy Master! Outstanding!';
-    if (percentage >= 80) return '💎 Excellent! You are privacy grounded!';
-    if (percentage >= 70) return '⭐ Great job! You are privacy oriented!';
-    if (percentage >= 60) return '📈 Good effort! Room for improvement!';
-    return '🎉 Congratulations! You are privacy centered!';
+    if (percentage >= 80) return '💎 Excellent! You are Privacy Grounded!';
+    if (percentage >= 70) return '⭐ Great job! You are Privacy Oriented!';
+    if (percentage >= 60) return '📈 Good effort! Room for Improvement!';
+    return '🎉 Congratulations! You are Privacy Centered!';
   };
 
   const handleGenerateCertificate = useCallback(async () => {
@@ -194,7 +194,7 @@ const Quiz: React.FC = () => {
 
   const handleShareToTwitter = () => {
     const percentage = Math.round((score / quizQuestions.length) * 100);
-    shareToTwitter(score, quizQuestions.length, percentage, certificateUrl || undefined);
+    shareToTwitter(score, quizQuestions.length, percentage);
   };
 
   // Generate certificate when quiz is completed

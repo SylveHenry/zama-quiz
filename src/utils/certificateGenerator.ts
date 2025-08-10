@@ -5,6 +5,14 @@ export interface CertificateData {
   completionDate: string;
 }
 
+const getScoreMessage = (percentage: number): string => {
+  if (percentage >= 90) return '🚀 Zama Privacy Master! Outstanding!';
+  if (percentage >= 80) return '💎 Excellent! You are Privacy Grounded!';
+  if (percentage >= 70) return '⭐ Great job! You are Privacy Oriented!';
+  if (percentage >= 60) return '📈 Good effort! Room for Improvement!';
+  return '🎉 Congratulations! You are Privacy Centered!';
+};
+
 export const generateCertificate = async (data: CertificateData): Promise<string> => {
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
@@ -66,7 +74,8 @@ export const generateCertificate = async (data: CertificateData): Promise<string
   // Congratulations message
   ctx.font = '20px Arial, sans-serif';
   ctx.fillStyle = '#059669'; // emerald-600
-  ctx.fillText('Congratulations! You are privacy centered!', canvas.width / 2, 420);
+  const scoreMessage = getScoreMessage(data.percentage);
+  ctx.fillText(scoreMessage, canvas.width / 2, 420);
 
   // Date
   ctx.font = '18px Arial, sans-serif';
@@ -97,7 +106,7 @@ export const downloadCertificate = (dataUrl: string, filename: string = 'zama-pr
   document.body.removeChild(link);
 };
 
-export const shareToTwitter = async (score: number, totalQuestions: number, percentage: number, certificateUrl?: string) => {
+export const shareToTwitter = async (score: number, totalQuestions: number, percentage: number) => {
   const tweetText = `🎉 Just completed the Zama Privacy Quiz with a score of ${score}/${totalQuestions} (${percentage}%)! 🔐\n\nTest your privacy knowledge and join the FHE revolution! 🚀\nTest your knowledge: https://zama-quiz.vercel.app/\n\n@zama_fhe @Zeusfi_bit\n#ZamaFHE #PrivacyFirst #Cryptography`;
   
   // Priority 1: Direct Twitter Share Link (text-only)
