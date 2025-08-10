@@ -1,11 +1,11 @@
-# 🚀 CryptoQuiz - Interactive Cryptocurrency Knowledge Test
+# 🚀 Zama Ai Quiz - Test Your Privacy Knowledge
 
-A modern, responsive cryptocurrency quiz application built with Next.js 15, featuring 20 comprehensive questions about Bitcoin, Ethereum, DeFi, and blockchain technology. Inspired by Zama.ai's design aesthetic with beautiful gradients and micro-animations.
+A modern, responsive Zama Ai Privacy quiz application built with Next.js 15. Test your knowledge of Zama Protocol. Inspired by Zama.ai's design aesthetic with beautiful gradients and micro-animations.
 
 ## ✨ Features
 
 ### 🎯 Quiz Functionality
-- **20 Comprehensive Questions** covering cryptocurrency fundamentals
+- **20 Comprehensive Questions** covering Zama Protocol and privacy fundamentals
 - **Single Question Display** with smooth transitions
 - **Multiple Choice Format** with 4 options per question
 - **Real-time Scoring** and progress tracking
@@ -15,7 +15,7 @@ A modern, responsive cryptocurrency quiz application built with Next.js 15, feat
 
 ### 🎨 Design & UX
 - **Zama.ai Inspired Theme** with purple/indigo gradients
-- **Cryptocurrency Themed** icons and animations
+- **Privacy Themed** icons and animations
 - **Micro-animations** including float, pulse-glow, and slide-in effects
 - **Fully Responsive** design for all device sizes
 - **Dark Theme** with glassmorphism effects
@@ -119,12 +119,12 @@ public/
 
 ## 🎯 Quiz Topics Covered
 
-- **Bitcoin Fundamentals** (HODL, Satoshi Nakamoto, Supply Cap)
-- **Ethereum & Smart Contracts** (PoS, Gas, Smart Contracts)
-- **DeFi Concepts** (Decentralized Finance, Yield Farming, Liquidity Pools)
-- **Cryptocurrency Trading** (FOMO, FUD, ATH)
-- **Blockchain Technology** (Forks, Mining, Consensus Mechanisms)
-- **Modern Crypto** (NFTs, DAOs, Stablecoins)
+- **Fully Homomorphic Encryption** (FHE Fundamentals, Encryption Types)
+- **Zama Protocol** (FHEVM, Zama Network, Privacy Solutions)
+- **Privacy Technology** (Confidential Computing, Zero-Knowledge Proofs)
+- **Blockchain Privacy** (Encrypted Smart Contracts, Private Transactions)
+- **Cryptographic Concepts** (Homomorphic Operations, Key Management)
+- **Privacy Applications** (Confidential DeFi, Private Voting, Secure Analytics)
 
 ## 🚀 Deployment
 

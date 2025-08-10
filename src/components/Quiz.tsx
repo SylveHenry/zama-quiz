@@ -152,9 +152,9 @@ const Quiz: React.FC = () => {
 
   const getScoreMessage = () => {
     const percentage = (score / quizQuestions.length) * 100;
-    if (percentage >= 90) return '🚀 Crypto Master! Outstanding!';
-    if (percentage >= 80) return '💎 Excellent! You know your crypto!';
-    if (percentage >= 70) return '⭐ Great job! Keep learning!';
+    if (percentage >= 90) return '🚀 Zama Privacy Master! Outstanding!';
+    if (percentage >= 80) return '💎 Excellent! You are privacy grounded!';
+    if (percentage >= 70) return '⭐ Great job! You are privacy oriented!';
     if (percentage >= 60) return '📈 Good effort! Room for improvement!';
     return '🎉 Congratulations! You are privacy centered!';
   };

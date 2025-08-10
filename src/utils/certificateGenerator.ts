@@ -98,43 +98,28 @@ export const downloadCertificate = (dataUrl: string, filename: string = 'zama-pr
 };
 
 export const shareToTwitter = async (score: number, totalQuestions: number, percentage: number, certificateUrl?: string) => {
-  const tweetText = `🎉 Just completed the Zama Privacy Quiz with a score of ${score}/${totalQuestions} (${percentage}%)! 🔐\n\nTest your privacy knowledge and join the FHE revolution! 🚀\n\n@zama_fhe @Zeusfi_bit\n\n#ZamaFHE #PrivacyFirst #Cryptography\n\nTake the quiz: ${window.location.origin}`;
+  const tweetText = `🎉 Just completed the Zama Privacy Quiz with a score of ${score}/${totalQuestions} (${percentage}%)! 🔐\n\nTest your privacy knowledge and join the FHE revolution! 🚀\nTest your knowledge: https://zama-quiz.vercel.app/\n\n@zama_fhe @Zeusfi_bit\n#ZamaFHE #PrivacyFirst #Cryptography`;
   
-  if (certificateUrl) {
-    // Try to use the Web Share API if available (supports images on mobile)
-    if (navigator.share && navigator.canShare) {
-      try {
-        // Convert data URL to blob
-        const response = await fetch(certificateUrl);
-        const blob = await response.blob();
-        const file = new File([blob], 'zama-privacy-quiz-certificate.png', { type: 'image/png' });
-        
-        const shareData = {
-          title: 'Zama Privacy Quiz Certificate',
-          text: tweetText,
-          files: [file]
-        };
-        
-        if (navigator.canShare(shareData)) {
-          await navigator.share(shareData);
-          return;
-        }
-      } catch {
-        console.log('Web Share API failed, falling back to Twitter intent');
-      }
+  // Priority 1: Direct Twitter Share Link (text-only)
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
+  window.open(twitterUrl, '_blank', 'width=550,height=420');
+  
+  // Fallback: Try native share dialog if available (text-only)
+  if (navigator.share) {
+    try {
+      const shareData = {
+        title: 'Zama Privacy Quiz Results',
+        text: tweetText
+      };
+      
+      // Offer native share as an additional option
+      setTimeout(() => {
+        navigator.share(shareData).catch(() => {
+          console.log('Native share cancelled or failed');
+        });
+      }, 2000);
+    } catch {
+      console.log('Native share not available');
     }
-    
-    // Fallback: Open Twitter with text and prompt user to attach image
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText + '\n\n📸 Certificate attached!')}`;
-    window.open(twitterUrl, '_blank', 'width=550,height=420');
-    
-    // Also trigger download so user can manually attach
-    setTimeout(() => {
-      downloadCertificate(certificateUrl, 'certificate-to-share.png');
-    }, 1000);
-  } else {
-    // No certificate available, just share text
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
-    window.open(twitterUrl, '_blank', 'width=550,height=420');
   }
 };

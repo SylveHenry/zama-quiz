@@ -13,10 +13,29 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CryptoQuiz - Test Your Cryptocurrency Knowledge",
-  description: "Interactive cryptocurrency quiz with 20 questions. Test your knowledge of Bitcoin, Ethereum, DeFi, and blockchain technology. Powered by Zama Protocol.",
-  keywords: "cryptocurrency, bitcoin, ethereum, blockchain, quiz, defi, crypto education",
-  authors: [{ name: "CryptoQuiz Team" }],
+  title: "Zama Ai Quiz - Test Your Privacy Knowledge",
+  description: "Interactive Zama Ai Privacy quiz. Test your knowledge of Zama Protocol.",
+  keywords: "zama, privacy, fhe, fully homomorphic encryption, quiz, privacy education, zama protocol",
+  authors: [{ name: "Zama Quiz Team" }],
+  openGraph: {
+    title: "Zama Ai Quiz - Test Your Privacy Knowledge",
+    description: "Interactive Zama Ai Privacy quiz. Test your knowledge of Zama Protocol.",
+    images: [
+      {
+        url: "/image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Zama Privacy Quiz Preview",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Zama Ai Quiz - Test Your Privacy Knowledge",
+    description: "Interactive Zama Ai Privacy quiz. Test your knowledge of Zama Protocol.",
+    images: ["/image.jpg"],
+  },
 };
 
 export const viewport: Viewport = {
