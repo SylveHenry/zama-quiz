@@ -1,23 +1,14 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 import quizData from './zama_quiz_structured.json';
 import { useQuiz } from '../contexts/QuizContext';
 import { generateCertificate, downloadCertificate, shareToTwitter, CertificateData } from '../utils/certificateGenerator';
 
-interface Option {
-  id: string;
-  text: string;
-  is_correct: boolean;
-}
 
-interface QuizQuestion {
-  id: number;
-  question_text: string;
-  options: Option[];
-  correct_answer: string;
-  explanation: string;
-}
+
+
 
 interface Question {
   id: number;
@@ -157,12 +148,7 @@ const Quiz: React.FC = () => {
     setIsGeneratingCertificate(false);
   };
 
-  const getScoreColor = () => {
-    const percentage = (score / quizQuestions.length) * 100;
-    if (percentage >= 80) return 'text-green-400';
-    if (percentage >= 60) return 'text-yellow-400';
-    return 'text-red-400';
-  };
+
 
   const getScoreMessage = () => {
     const percentage = (score / quizQuestions.length) * 100;
@@ -173,7 +159,7 @@ const Quiz: React.FC = () => {
     return '🎉 Congratulations! You are privacy centered!';
   };
 
-  const handleGenerateCertificate = async () => {
+  const handleGenerateCertificate = useCallback(async () => {
     if (isGeneratingCertificate) return;
     
     setIsGeneratingCertificate(true);
@@ -198,7 +184,7 @@ const Quiz: React.FC = () => {
     } finally {
       setIsGeneratingCertificate(false);
     }
-  };
+  }, [isGeneratingCertificate, score, quizQuestions.length]);
 
   const handleDownloadCertificate = () => {
     if (certificateUrl) {
@@ -216,7 +202,7 @@ const Quiz: React.FC = () => {
     if (quizCompleted && !certificateUrl && !isGeneratingCertificate) {
       handleGenerateCertificate();
     }
-  }, [quizCompleted, certificateUrl, isGeneratingCertificate]);
+  }, [quizCompleted, certificateUrl, isGeneratingCertificate, handleGenerateCertificate]);
 
   // Show welcome screen
   if (showWelcome) {
@@ -320,9 +306,11 @@ const Quiz: React.FC = () => {
               <div className="bg-white/90 rounded-xl p-4 border border-yellow-400/30">
                 <h3 className="text-lg font-semibold text-gray-800 mb-3 text-center">Your Certificate</h3>
                 <div className="flex justify-center mb-4">
-                  <img 
+                  <Image 
                     src={certificateUrl} 
                     alt="Certificate" 
+                    width={400}
+                    height={200}
                     className="max-w-full h-auto rounded-lg border border-gray-300 shadow-lg"
                     style={{ maxHeight: '200px' }}
                   />

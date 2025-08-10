@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -17,7 +17,11 @@ export const metadata: Metadata = {
   description: "Interactive cryptocurrency quiz with 20 questions. Test your knowledge of Bitcoin, Ethereum, DeFi, and blockchain technology. Powered by Zama Protocol.",
   keywords: "cryptocurrency, bitcoin, ethereum, blockchain, quiz, defi, crypto education",
   authors: [{ name: "CryptoQuiz Team" }],
-  viewport: "width=device-width, initial-scale=1",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
   themeColor: "#fbbf24",
 };
 

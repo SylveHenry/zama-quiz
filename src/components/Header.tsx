@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { useQuiz } from '../contexts/QuizContext';
 
 const Header: React.FC = () => {
@@ -14,10 +15,12 @@ const Header: React.FC = () => {
           {/* Logo and Title */}
           <div className="flex items-center space-x-3">
             <div className="relative">
-              <img 
+              <Image 
                 src="/logo.png" 
                 alt="Zama Logo" 
-                className="w-10 h-10 object-contain"
+                width={40}
+                height={40}
+                className="object-contain"
               />
             </div>
             <div>

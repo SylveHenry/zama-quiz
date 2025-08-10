@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import FlowingText from '../../components/FlowingText';
@@ -26,7 +27,7 @@ const HowToPlay: React.FC = () => {
                     Getting Started
                   </h2>
                   <p className="text-gray-700">
-                    Click the "Begin Quiz" button to start your privacy and cryptography knowledge test. The quiz consists of 20 carefully curated questions about privacy, encryption, and the Zama Protocol.
+                    Click the &ldquo;Begin Quiz&rdquo; button to start your privacy and cryptography knowledge test. The quiz consists of 20 carefully curated questions about privacy, encryption, and the Zama Protocol.
                   </p>
                 </div>
 
@@ -39,7 +40,7 @@ const HowToPlay: React.FC = () => {
                     <li>• Each question has multiple choice answers</li>
                     <li>• You have 30 seconds to answer each question</li>
                     <li>• Select your answer by clicking on one of the options</li>
-                    <li>• Click "Submit Answer" to confirm your choice</li>
+                    <li>• Click &ldquo;Submit Answer&rdquo; to confirm your choice</li>
                   </ul>
                 </div>
 
@@ -49,7 +50,7 @@ const HowToPlay: React.FC = () => {
                     Learning & Feedback
                   </h2>
                   <p className="text-gray-700">
-                    After each answer, you'll see if you were correct and get a detailed explanation. This helps you learn about privacy technologies and cryptographic concepts as you play.
+                    After each answer, you&rsquo;ll see if you were correct and get a detailed explanation. This helps you learn about privacy technologies and cryptographic concepts as you play.
                   </p>
                 </div>
 
@@ -61,7 +62,7 @@ const HowToPlay: React.FC = () => {
                   <ul className="text-gray-700 space-y-2">
                     <li>• Your score is tracked in real-time in the navbar</li>
                     <li>• Each correct answer adds 1 point to your score</li>
-                    <li>• At the end, you'll see your final score and percentage</li>
+                    <li>• At the end, you&rsquo;ll see your final score and percentage</li>
                     <li>• You can restart the quiz anytime to improve your score</li>
                   </ul>
                 </div>
@@ -73,7 +74,7 @@ const HowToPlay: React.FC = () => {
                   </h2>
                   <ul className="text-gray-700 space-y-2">
                     <li>• Read each question carefully</li>
-                    <li>• Don't rush - you have 30 seconds per question</li>
+                    <li>• Don&rsquo;t rush - you have 30 seconds per question</li>
                     <li>• Pay attention to the explanations to learn more</li>
                     <li>• The quiz covers privacy, encryption, and Zama Protocol topics</li>
                   </ul>
@@ -81,12 +82,12 @@ const HowToPlay: React.FC = () => {
               </div>
 
               <div className="mt-8 text-center">
-                <a 
+                <Link 
                   href="/" 
                   className="inline-block bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-105"
                 >
                   Start Playing Now!
-                </a>
+                </Link>
               </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -12,7 +13,7 @@ const Footer: React.FC = () => {
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <img src="/logo.png" alt="Zama Logo" className="w-8 h-8 object-contain" />
+              <Image src="/logo.png" alt="Zama Logo" width={32} height={32} className="object-contain" />
               <span className="text-lg font-semibold text-gray-800">
                 Zama Privacy Quiz
               </span>

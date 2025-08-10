@@ -119,7 +119,7 @@ export const shareToTwitter = async (score: number, totalQuestions: number, perc
           await navigator.share(shareData);
           return;
         }
-      } catch (error) {
+      } catch {
         console.log('Web Share API failed, falling back to Twitter intent');
       }
     }
