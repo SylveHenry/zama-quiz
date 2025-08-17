@@ -4,13 +4,11 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useQuiz } from '../contexts/QuizContext';
-import { useCourse } from '../contexts/CourseContext';
 import { usePathname } from 'next/navigation';
-import { BookOpen, Award, Clock } from 'lucide-react';
+import { BookOpen, Award } from 'lucide-react';
 
 const Header: React.FC = () => {
-  const { score, totalQuestions, getScorePercentage } = useQuiz();
-  const { progress } = useCourse();
+  const { score, totalQuestions } = useQuiz();
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentSession, setCurrentSession] = useState<{

@@ -6,10 +6,12 @@ import Header from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import FlowingText from '../../components/FlowingText';
 import { QuizProvider } from '../../contexts/QuizContext';
+import { CourseProvider } from '../../contexts/CourseContext';
 
 const HowToPlay: React.FC = () => {
   return (
-    <QuizProvider>
+    <CourseProvider>
+      <QuizProvider>
       <div className="min-h-screen bg-gradient-to-br from-yellow-400 via-yellow-500 to-amber-600 flex flex-col relative">
         <FlowingText />
         <Header />
@@ -94,7 +96,8 @@ const HowToPlay: React.FC = () => {
         </main>
         <Footer />
       </div>
-    </QuizProvider>
+      </QuizProvider>
+    </CourseProvider>
   );
 };
 
