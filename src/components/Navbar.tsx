@@ -1,19 +1,64 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useQuiz } from '../contexts/QuizContext';
+import { useCourse } from '../contexts/CourseContext';
+import { usePathname } from 'next/navigation';
+import { BookOpen, Award, Clock } from 'lucide-react';
 
 const Header: React.FC = () => {
   const { score, totalQuestions, getScorePercentage } = useQuiz();
+  const { progress } = useCourse();
+  const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [currentSession, setCurrentSession] = useState<{
+    type: 'course' | 'quiz' | null;
+    difficulty: 'beginner' | 'intermediate' | 'advanced' | null;
+    progress?: number;
+  }>({ type: null, difficulty: null });
+
+  // Detect current session based on pathname and quiz state
+  useEffect(() => {
+    if (pathname === '/beginner' || pathname === '/intermediate' || pathname === '/advanced') {
+      const difficulty = pathname.slice(1) as 'beginner' | 'intermediate' | 'advanced';
+      
+      // Check if quiz is active (has questions loaded)
+      if (totalQuestions > 0) {
+        setCurrentSession({
+          type: 'quiz',
+          difficulty,
+          progress: Math.round((score / totalQuestions) * 100)
+        });
+      } else {
+        // Assume course is active
+        setCurrentSession({
+          type: 'course',
+          difficulty,
+          progress: 0 // Course progress would need to be tracked separately
+        });
+      }
+    } else {
+      setCurrentSession({ type: null, difficulty: null });
+    }
+  }, [pathname, totalQuestions, score]);
+
+  const getDifficultyColor = (difficulty: string) => {
+    switch (difficulty) {
+      case 'beginner': return 'text-green-600';
+      case 'intermediate': return 'text-blue-600';
+      case 'advanced': return 'text-purple-600';
+      default: return 'text-gray-600';
+    }
+  };
   
   return (
     <header className="w-full bg-gradient-to-r from-yellow-400 to-yellow-300 border-b border-yellow-500/30 sticky top-0 z-50 shadow-lg relative z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo and Title */}
-          <div className="flex items-center space-x-3">
+          <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
             <div className="relative">
               <Image 
                 src="/logo.png" 
@@ -27,19 +72,25 @@ const Header: React.FC = () => {
               <h1 className="text-xl font-bold text-gray-800">
                 Zama
               </h1>
-              <p className="text-xs text-gray-600">Privacy Quiz</p>
+              <p className="text-xs text-gray-600">Introduction to Zama</p>
             </div>
-          </div>
+          </Link>
 
           {/* Right side content */}
           <div className="flex items-center space-x-4">
-            {/* Score - visible on all screen sizes */}
-            <div className="flex items-center space-x-2">
-              <svg className="w-4 h-4 text-black" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-              </svg>
-              <span className="text-sm text-gray-700">Score: {score}/{totalQuestions} ({getScorePercentage()}%)</span>
-            </div>
+            {/* Session Progress - visible when in course or quiz */}
+            {currentSession.type && currentSession.difficulty && (
+              <div className="flex items-center space-x-2">
+                {currentSession.type === 'course' ? (
+                  <BookOpen className="w-4 h-4 text-blue-600" />
+                ) : (
+                  <Award className="w-4 h-4 text-orange-600" />
+                )}
+                <span className={`text-sm font-medium ${getDifficultyColor(currentSession.difficulty)}`}>
+                  {currentSession.difficulty.charAt(0).toUpperCase() + currentSession.difficulty.slice(1)} {currentSession.type === 'course' ? 'Course' : 'Quiz'}
+                </span>
+              </div>
+            )}
 
             {/* Navigation - hidden on mobile */}
             <nav className="hidden md:flex items-center space-x-6">

@@ -1,0 +1,839 @@
+{
+  "beginner": {
+    "questions": [
+      {
+        "id": 1,
+        "question": "What does FHE stand for?",
+        "options": [
+          { "text": "Fully Homomorphic Encryption", "isCorrect": true },
+          { "text": "Fast Hash Encryption", "isCorrect": false },
+          { "text": "Functional Hybrid Encryption", "isCorrect": false },
+          { "text": "Forward Hash Encryption", "isCorrect": false }
+        ],
+        "explanation": "FHE stands for Fully Homomorphic Encryption, which allows computation on encrypted data without decryption."
+      },
+      {
+        "id": 2,
+        "question": "What is the main advantage of Fully Homomorphic Encryption?",
+        "options": [
+          { "text": "It's faster than regular encryption", "isCorrect": false },
+          { "text": "It allows computation on encrypted data without decryption", "isCorrect": true },
+          { "text": "It uses less storage space", "isCorrect": false },
+          { "text": "It's easier to implement", "isCorrect": false }
+        ],
+        "explanation": "FHE's main advantage is enabling computation directly on encrypted data while maintaining privacy."
+      },
+      {
+        "id": 3,
+        "question": "What problem does the Zama Protocol solve for blockchains?",
+        "options": [
+          { "text": "Slow transaction speeds", "isCorrect": false },
+          { "text": "High gas fees", "isCorrect": false },
+          { "text": "Lack of confidentiality", "isCorrect": true },
+          { "text": "Limited smart contract functionality", "isCorrect": false }
+        ],
+        "explanation": "Zama Protocol solves the confidentiality problem by enabling encrypted computation on blockchains."
+      },
+      {
+        "id": 4,
+        "question": "Is Zama Protocol a new blockchain?",
+        "options": [
+          { "text": "Yes, it's a new L1 blockchain", "isCorrect": false },
+          { "text": "Yes, it's a new L2 solution", "isCorrect": false },
+          { "text": "No, it's a confidentiality layer on top of existing chains", "isCorrect": true },
+          { "text": "Yes, it's a sidechain", "isCorrect": false }
+        ],
+        "explanation": "Zama Protocol is not a new blockchain but a cross-chain confidentiality layer that works on top of existing L1/L2 chains."
+      },
+      {
+        "id": 5,
+        "question": "Which of the following is NOT a key benefit of Zama Protocol?",
+        "options": [
+          { "text": "End-to-end encryption", "isCorrect": false },
+          { "text": "Composability between contracts", "isCorrect": false },
+          { "text": "Programmable confidentiality", "isCorrect": false },
+          { "text": "Faster transaction processing", "isCorrect": true }
+        ],
+        "explanation": "While Zama Protocol offers many benefits, faster transaction processing is not its primary focus - confidentiality is."
+      },
+      {
+        "id": 6,
+        "question": "What library does Zama provide for developers?",
+        "options": [
+          { "text": "ZHEVM library", "isCorrect": false },
+          { "text": "FHEVM library", "isCorrect": true },
+          { "text": "CHEVM library", "isCorrect": false },
+          { "text": "PHEVM library", "isCorrect": false }
+        ],
+        "explanation": "The FHEVM library enables developers to build smart contracts that operate on encrypted data."
+      },
+      {
+        "id": 7,
+        "question": "Do developers need cryptography knowledge to use FHEVM?",
+        "options": [
+          { "text": "Yes, extensive cryptography knowledge is required", "isCorrect": false },
+          { "text": "No, the library abstracts away cryptography complexity", "isCorrect": true },
+          { "text": "Only basic cryptography knowledge is needed", "isCorrect": false },
+          { "text": "Yes, but only for advanced features", "isCorrect": false }
+        ],
+        "explanation": "The FHEVM library is designed to abstract away cryptography complexity, requiring no cryptography knowledge from developers."
+      },
+      {
+        "id": 8,
+        "question": "Which encrypted data type represents encrypted booleans?",
+        "options": [
+          { "text": "ebool", "isCorrect": true },
+          { "text": "eint1", "isCorrect": false },
+          { "text": "euint1", "isCorrect": false },
+          { "text": "eboolean", "isCorrect": false }
+        ],
+        "explanation": "The ebool type represents encrypted boolean values in FHEVM."
+      },
+      {
+        "id": 9,
+        "question": "What is the range of encrypted unsigned integer types in FHEVM?",
+        "options": [
+          { "text": "euint8 to euint128", "isCorrect": false },
+          { "text": "euint8 to euint256", "isCorrect": true },
+          { "text": "euint16 to euint256", "isCorrect": false },
+          { "text": "euint8 to euint512", "isCorrect": false }
+        ],
+        "explanation": "FHEVM supports encrypted unsigned integers from euint8 to euint256."
+      },
+      {
+        "id": 10,
+        "question": "How are encrypted values stored in FHEVM?",
+        "options": [
+          { "text": "Directly on-chain as encrypted bytes", "isCorrect": false },
+          { "text": "As handles pointing to off-chain encrypted values", "isCorrect": true },
+          { "text": "In a separate encrypted database", "isCorrect": false },
+          { "text": "As compressed encrypted data on-chain", "isCorrect": false }
+        ],
+        "explanation": "FHEVM uses handles (bytes32) that point to encrypted values stored off-chain for efficiency."
+      },
+      {
+        "id": 11,
+        "question": "Which arithmetic operation is supported on encrypted types?",
+        "options": [
+          { "text": "Addition (add)", "isCorrect": true },
+          { "text": "Square root", "isCorrect": false },
+          { "text": "Logarithm", "isCorrect": false },
+          { "text": "Trigonometric functions", "isCorrect": false }
+        ],
+        "explanation": "FHEVM supports basic arithmetic operations like add, sub, mul, div, and rem on encrypted types."
+      },
+      {
+        "id": 12,
+        "question": "What logical operation can be performed on encrypted booleans?",
+        "options": [
+          { "text": "AND operation", "isCorrect": true },
+          { "text": "NAND operation", "isCorrect": false },
+          { "text": "NOR operation", "isCorrect": false },
+          { "text": "IMPLIES operation", "isCorrect": false }
+        ],
+        "explanation": "FHEVM supports logical operations like AND, OR, XOR, and NOT on encrypted types."
+      },
+      {
+        "id": 13,
+        "question": "Is FHE technology post-quantum secure?",
+        "options": [
+          { "text": "No, it can be broken by quantum computers", "isCorrect": false },
+          { "text": "Yes, it's resistant to quantum attacks", "isCorrect": true },
+          { "text": "Only partially quantum-resistant", "isCorrect": false },
+          { "text": "Unknown, still being researched", "isCorrect": false }
+        ],
+        "explanation": "Zama's FHE technology is post-quantum secure, meaning no known quantum algorithms can break it."
+      },
+      {
+        "id": 14,
+        "question": "What does 'composability' mean in the context of Zama Protocol?",
+        "options": [
+          { "text": "Contracts can only interact with other confidential contracts", "isCorrect": false },
+          { "text": "Contracts can interact with both confidential and non-confidential contracts", "isCorrect": true },
+          { "text": "Contracts are isolated and cannot interact", "isCorrect": false },
+          { "text": "Only certain types of contracts can be composed", "isCorrect": false }
+        ],
+        "explanation": "Composability in Zama Protocol means confidential contracts can interact with both confidential and non-confidential contracts."
+      },
+      {
+        "id": 15,
+        "question": "What is 'programmable confidentiality'?",
+        "options": [
+          { "text": "Confidentiality that changes automatically", "isCorrect": false },
+          { "text": "Developers control who can decrypt what data", "isCorrect": true },
+          { "text": "Confidentiality that can be turned on/off", "isCorrect": false },
+          { "text": "Pre-programmed confidentiality rules", "isCorrect": false }
+        ],
+        "explanation": "Programmable confidentiality means developers have full control over defining who can decrypt what data in their applications."
+      },
+      {
+        "id": 16,
+        "question": "Why is FHE considered the 'holy grail' of cryptography?",
+        "options": [
+          { "text": "It's the fastest encryption method", "isCorrect": false },
+          { "text": "It enables end-to-end encryption for any application", "isCorrect": true },
+          { "text": "It uses the least computational resources", "isCorrect": false },
+          { "text": "It's the easiest to implement", "isCorrect": false }
+        ],
+        "explanation": "FHE is called the 'holy grail' because it enables true end-to-end encryption for any application, allowing computation on encrypted data."
+      },
+      {
+        "id": 17,
+        "question": "What comparison operation is available for encrypted integers?",
+        "options": [
+          { "text": "Less than (lt)", "isCorrect": true },
+          { "text": "Approximately equal", "isCorrect": false },
+          { "text": "Divisible by", "isCorrect": false },
+          { "text": "Prime check", "isCorrect": false }
+        ],
+        "explanation": "FHEVM supports comparison operations like lt (less than), gt (greater than), eq (equal), and others."
+      },
+      {
+        "id": 18,
+        "question": "What bit manipulation operation is supported?",
+        "options": [
+          { "text": "Bit counting", "isCorrect": false },
+          { "text": "Shift left (shl)", "isCorrect": true },
+          { "text": "Bit reversal", "isCorrect": false },
+          { "text": "Parity check", "isCorrect": false }
+        ],
+        "explanation": "FHEVM supports bit manipulation operations like shl (shift left), shr (shift right), rotl (rotate left), and rotr (rotate right)."
+      },
+      {
+        "id": 19,
+        "question": "Where can developers find examples and inspiration for FHEVM development?",
+        "options": [
+          { "text": "Only in the documentation", "isCorrect": false },
+          { "text": "In the Examples section with smart contract and dApp examples", "isCorrect": true },
+          { "text": "Only through community forums", "isCorrect": false },
+          { "text": "Examples are not provided", "isCorrect": false }
+        ],
+        "explanation": "Zama provides an Examples section with reference smart contract examples and dApp examples for inspiration."
+      },
+      {
+        "id": 20,
+        "question": "What should developers remember about the current Zama Protocol Testnet?",
+        "options": [
+          { "text": "It's ready for production use", "isCorrect": false },
+          { "text": "It's not audited and not intended for production use", "isCorrect": true },
+          { "text": "It only supports basic operations", "isCorrect": false },
+          { "text": "It requires special hardware", "isCorrect": false }
+        ],
+        "explanation": "The Zama Protocol Testnet is not audited and not intended for production use. Developers should wait for the Mainnet release for production workloads."
+      },
+      {
+        "id": 21,
+        "question": "What type of encrypted address is supported in FHEVM?",
+        "options": [
+          { "text": "eaddress", "isCorrect": true },
+          { "text": "eaddr", "isCorrect": false },
+          { "text": "encaddress", "isCorrect": false },
+          { "text": "eaddress256", "isCorrect": false }
+        ],
+        "explanation": "FHEVM supports eaddress type for encrypted addresses."
+      },
+      {
+        "id": 22,
+        "question": "How much faster is Zama's FHE technology compared to 5 years ago?",
+        "options": [
+          { "text": "10x faster", "isCorrect": false },
+          { "text": "50x faster", "isCorrect": false },
+          { "text": "Over 100x faster", "isCorrect": true },
+          { "text": "1000x faster", "isCorrect": false }
+        ],
+        "explanation": "Zama's FHE technology is over 100x faster than it was 5 years ago, making it practical for real-world applications."
+      },
+      {
+        "id": 23,
+        "question": "What programming languages does Zama's FHE technology support?",
+        "options": [
+          { "text": "Only Solidity", "isCorrect": false },
+          { "text": "Solidity and Python", "isCorrect": true },
+          { "text": "Only Python", "isCorrect": false },
+          { "text": "C++ and Rust only", "isCorrect": false }
+        ],
+        "explanation": "Zama's FHE technology supports common programming languages including Solidity and Python."
+      },
+      {
+        "id": 24,
+        "question": "What is the analogy used to describe the evolution of internet encryption?",
+        "options": [
+          { "text": "From FTP to SFTP", "isCorrect": false },
+          { "text": "From HTTP to HTTPS to HTTPZ", "isCorrect": true },
+          { "text": "From TCP to TLS", "isCorrect": false },
+          { "text": "From POP3 to IMAP", "isCorrect": false }
+        ],
+        "explanation": "The analogy describes evolution from HTTP (no encryption) to HTTPS (data in transit encryption) to HTTPZ (end-to-end encryption with FHE)."
+      },
+      {
+        "id": 25,
+        "question": "What does HTTPZ represent in Zama's vision?",
+        "options": [
+          { "text": "A new web protocol", "isCorrect": false },
+          { "text": "End-to-end encryption by default in every application", "isCorrect": true },
+          { "text": "A faster version of HTTPS", "isCorrect": false },
+          { "text": "A blockchain-specific protocol", "isCorrect": false }
+        ],
+        "explanation": "HTTPZ represents Zama's vision of end-to-end encryption by default in every application using FHE technology."
+      }
+    ]
+  },
+  "intermediate": {
+    "questions": [
+      {
+        "id": 1,
+        "question": "Which component acts as the central orchestrator in the Zama Protocol?",
+        "options": [
+          { "text": "Host Contracts", "isCorrect": false },
+          { "text": "Coprocessors", "isCorrect": false },
+          { "text": "Gateway", "isCorrect": true },
+          { "text": "KMS", "isCorrect": false }
+        ],
+        "explanation": "The Gateway acts as the central orchestrator, coordinating interactions between users, host chains, coprocessors, and KMS."
+      },
+      {
+        "id": 2,
+        "question": "What is the primary responsibility of Host Contracts?",
+        "options": [
+          { "text": "Performing FHE computations", "isCorrect": false },
+          { "text": "Managing Access Control Lists (ACLs)", "isCorrect": true },
+          { "text": "Generating encryption keys", "isCorrect": false },
+          { "text": "Storing encrypted data", "isCorrect": false }
+        ],
+        "explanation": "Host Contracts primarily manage Access Control Lists (ACLs) and emit events for off-chain components."
+      },
+      {
+        "id": 3,
+        "question": "What does the allow() function in Host Contracts do?",
+        "options": [
+          { "text": "Grants temporary access for one transaction", "isCorrect": false },
+          { "text": "Grants persistent access to a ciphertext", "isCorrect": true },
+          { "text": "Marks a handle for public decryption", "isCorrect": false },
+          { "text": "Validates user permissions", "isCorrect": false }
+        ],
+        "explanation": "The allow() function grants persistent access to a ciphertext for a specific address."
+      },
+      {
+        "id": 4,
+        "question": "What is the difference between allow() and allowTransient()?",
+        "options": [
+          { "text": "allow() is for users, allowTransient() is for contracts", "isCorrect": false },
+          { "text": "allow() grants persistent access, allowTransient() grants temporary access", "isCorrect": true },
+          { "text": "allow() is on-chain, allowTransient() is off-chain", "isCorrect": false },
+          { "text": "There is no difference", "isCorrect": false }
+        ],
+        "explanation": "allow() grants persistent access while allowTransient() grants temporary access for a single transaction."
+      },
+      {
+        "id": 5,
+        "question": "Where do Coprocessors perform FHE computations?",
+        "options": [
+          { "text": "On-chain", "isCorrect": false },
+          { "text": "Off-chain", "isCorrect": true },
+          { "text": "In the Gateway", "isCorrect": false },
+          { "text": "In the KMS", "isCorrect": false }
+        ],
+        "explanation": "Coprocessors perform heavy FHE computations off-chain to avoid blockchain performance limitations."
+      },
+      {
+        "id": 6,
+        "question": "What library do Coprocessors use for FHE operations?",
+        "options": [
+          { "text": "OpenFHE", "isCorrect": false },
+          { "text": "TFHE-rs", "isCorrect": true },
+          { "text": "HElib", "isCorrect": false },
+          { "text": "SEAL", "isCorrect": false }
+        ],
+        "explanation": "Coprocessors use the TFHE-rs library to execute FHE operations like add, mul, and select."
+      },
+      {
+        "id": 7,
+        "question": "What do Coprocessors verify when users submit encrypted inputs?",
+        "options": [
+          { "text": "Digital signatures", "isCorrect": false },
+          { "text": "Zero-Knowledge Proofs of Knowledge (ZKPoK)", "isCorrect": true },
+          { "text": "Hash functions", "isCorrect": false },
+          { "text": "Merkle proofs", "isCorrect": false }
+        ],
+        "explanation": "Coprocessors verify Zero-Knowledge Proofs of Knowledge to ensure encrypted inputs are valid and well-formed."
+      },
+      {
+        "id": 8,
+        "question": "How is the Gateway implemented?",
+        "options": [
+          { "text": "As a standalone blockchain", "isCorrect": false },
+          { "text": "As an Arbitrum rollup", "isCorrect": true },
+          { "text": "As a smart contract on Ethereum", "isCorrect": false },
+          { "text": "As a sidechain", "isCorrect": false }
+        ],
+        "explanation": "The Gateway is implemented as an Arbitrum rollup to provide efficient coordination and consensus."
+      },
+      {
+        "id": 9,
+        "question": "What does the Gateway coordinate?",
+        "options": [
+          { "text": "Only encrypted input validation", "isCorrect": false },
+          { "text": "Only cross-chain bridging", "isCorrect": false },
+          { "text": "Interactions between users, host chains, coprocessors, and KMS", "isCorrect": true },
+          { "text": "Only decryption requests", "isCorrect": false }
+        ],
+        "explanation": "The Gateway coordinates all interactions between users, host chains, coprocessors, and the KMS."
+      },
+      {
+        "id": 10,
+        "question": "How many nodes does the KMS network currently have?",
+        "options": [
+          { "text": "9 nodes", "isCorrect": false },
+          { "text": "13 nodes", "isCorrect": true },
+          { "text": "16 nodes", "isCorrect": false },
+          { "text": "21 nodes", "isCorrect": false }
+        ],
+        "explanation": "The KMS currently uses 13 MPC nodes operated by different reputable organizations."
+      },
+      {
+        "id": 11,
+        "question": "What is the threshold requirement for KMS operations?",
+        "options": [
+          { "text": "7 out of 13 nodes", "isCorrect": false },
+          { "text": "9 out of 13 nodes", "isCorrect": true },
+          { "text": "11 out of 13 nodes", "isCorrect": false },
+          { "text": "All 13 nodes", "isCorrect": false }
+        ],
+        "explanation": "At least 9 out of 13 KMS nodes must participate in the threshold decryption protocol."
+      },
+      {
+        "id": 12,
+        "question": "What standard does KMS follow for key lifecycle management?",
+        "options": [
+          { "text": "FIPS 140-2", "isCorrect": false },
+          { "text": "NIST SP 800-57", "isCorrect": true },
+          { "text": "ISO 27001", "isCorrect": false },
+          { "text": "Common Criteria", "isCorrect": false }
+        ],
+        "explanation": "KMS follows the NIST SP 800-57 key lifecycle model for proper key management."
+      },
+      {
+        "id": 13,
+        "question": "What are the key states in the KMS lifecycle model?",
+        "options": [
+          { "text": "Created, Active, Expired", "isCorrect": false },
+          { "text": "Active, Suspended, Deactivated, Destroyed", "isCorrect": true },
+          { "text": "New, Used, Archived", "isCorrect": false },
+          { "text": "Generated, Deployed, Revoked", "isCorrect": false }
+        ],
+        "explanation": "KMS manages keys through Active, Suspended, Deactivated, and Destroyed states."
+      },
+      {
+        "id": 14,
+        "question": "What does KMS generate for Zero-Knowledge Proof validation?",
+        "options": [
+          { "text": "Merkle trees", "isCorrect": false },
+          { "text": "Common Reference Strings (CRS)", "isCorrect": true },
+          { "text": "Hash chains", "isCorrect": false },
+          { "text": "Digital certificates", "isCorrect": false }
+        ],
+        "explanation": "KMS generates Common Reference Strings (CRS) needed to validate Zero-Knowledge Proofs of Knowledge."
+      },
+      {
+        "id": 15,
+        "question": "Are Relayers and Oracles part of the trusted base of the protocol?",
+        "options": [
+          { "text": "Yes, they are fully trusted", "isCorrect": false },
+          { "text": "No, they are untrusted and verifiable", "isCorrect": true },
+          { "text": "Partially trusted", "isCorrect": false },
+          { "text": "Only Oracles are trusted", "isCorrect": false }
+        ],
+        "explanation": "Relayers and Oracles are not part of the trusted base; their actions are fully verifiable and their misbehavior doesn't compromise security."
+      },
+      {
+        "id": 16,
+        "question": "What is the main responsibility of Oracles?",
+        "options": [
+          { "text": "Encrypt user inputs", "isCorrect": false },
+          { "text": "Retrieve decrypted values for smart contracts", "isCorrect": true },
+          { "text": "Perform FHE computations", "isCorrect": false },
+          { "text": "Manage access control", "isCorrect": false }
+        ],
+        "explanation": "Oracles act on behalf of smart contracts to retrieve decrypted values from the FHEVM protocol."
+      },
+      {
+        "id": 17,
+        "question": "What is the main responsibility of Relayers?",
+        "options": [
+          { "text": "Perform decryption for contracts", "isCorrect": false },
+          { "text": "Simplify user interaction with the Gateway", "isCorrect": true },
+          { "text": "Execute FHE operations", "isCorrect": false },
+          { "text": "Manage encryption keys", "isCorrect": false }
+        ],
+        "explanation": "Relayers simplify user interaction with the Gateway, particularly for encryption and decryption operations."
+      },
+      {
+        "id": 18,
+        "question": "How does the Gateway ensure encrypted inputs are valid?",
+        "options": [
+          { "text": "By decrypting and checking them", "isCorrect": false },
+          { "text": "By accepting them with Zero-Knowledge Proofs", "isCorrect": true },
+          { "text": "By using digital signatures only", "isCorrect": false },
+          { "text": "By trusting the user", "isCorrect": false }
+        ],
+        "explanation": "The Gateway accepts encrypted inputs along with Zero-Knowledge Proofs of Knowledge to ensure validity without revealing plaintext."
+      },
+      {
+        "id": 19,
+        "question": "What enables cross-chain bridging in the Zama Protocol?",
+        "options": [
+          { "text": "Host Contracts", "isCorrect": false },
+          { "text": "Coprocessors", "isCorrect": false },
+          { "text": "Gateway", "isCorrect": true },
+          { "text": "KMS", "isCorrect": false }
+        ],
+        "explanation": "The Gateway enables cross-chain bridging of encrypted ciphertexts across different blockchains."
+      },
+      {
+        "id": 20,
+        "question": "What communication protocol secures KMS node interactions?",
+        "options": [
+          { "text": "HTTPS", "isCorrect": false },
+          { "text": "mTLS with gRPC", "isCorrect": true },
+          { "text": "SSH", "isCorrect": false },
+          { "text": "VPN", "isCorrect": false }
+        ],
+        "explanation": "KMS nodes communicate using mTLS (mutual TLS) with gRPC for secure interactions."
+      },
+      {
+        "id": 21,
+        "question": "What happens when a smart contract executes a function over encrypted values?",
+        "options": [
+          { "text": "The function executes directly on encrypted data", "isCorrect": false },
+          { "text": "Symbolic computation events are emitted", "isCorrect": true },
+          { "text": "The data is decrypted first", "isCorrect": false },
+          { "text": "The operation fails", "isCorrect": false }
+        ],
+        "explanation": "When smart contracts execute functions over encrypted values, symbolic computation events are emitted for coprocessors to process."
+      },
+      {
+        "id": 22,
+        "question": "How do coprocessors achieve consensus on computation results?",
+        "options": [
+          { "text": "Through voting mechanisms", "isCorrect": false },
+          { "text": "By publishing commitments to the Gateway", "isCorrect": true },
+          { "text": "Through proof-of-work", "isCorrect": false },
+          { "text": "By direct communication", "isCorrect": false }
+        ],
+        "explanation": "Coprocessors can publish commitments (digests) of ciphertext results to the Gateway for verifiability and consensus."
+      },
+      {
+        "id": 23,
+        "question": "What advantage does the hybrid technology approach provide?",
+        "options": [
+          { "text": "Lower costs only", "isCorrect": false },
+          { "text": "Addresses limitations of individual technologies", "isCorrect": true },
+          { "text": "Faster processing only", "isCorrect": false },
+          { "text": "Simpler implementation only", "isCorrect": false }
+        ],
+        "explanation": "The hybrid approach combining FHE, MPC, and ZK addresses the shortcomings and limitations of using any single technology alone."
+      },
+      {
+        "id": 24,
+        "question": "What is the current performance target with GPU acceleration?",
+        "options": [
+          { "text": "10+ transactions per second", "isCorrect": false },
+          { "text": "100+ transactions per second", "isCorrect": true },
+          { "text": "1000+ transactions per second", "isCorrect": false },
+          { "text": "10000+ transactions per second", "isCorrect": false }
+        ],
+        "explanation": "GPU acceleration enables scaling to 100+ transactions per second in the current implementation."
+      },
+      {
+        "id": 25,
+        "question": "What future hardware will enable thousands of transactions per second?",
+        "options": [
+          { "text": "More powerful GPUs", "isCorrect": false },
+          { "text": "FPGAs and ASICs", "isCorrect": true },
+          { "text": "Quantum processors", "isCorrect": false },
+          { "text": "Distributed CPUs", "isCorrect": false }
+        ],
+        "explanation": "Dedicated hardware accelerators like FPGAs and ASICs will enable scaling to thousands of transactions per second."
+      }
+    ]
+  },
+  "advanced": {
+    "questions": [
+      {
+        "id": 1,
+        "question": "What specific FHE scheme does Zama's implementation use?",
+        "options": [
+          { "text": "BGV", "isCorrect": false },
+          { "text": "TFHE (Torus Fully Homomorphic Encryption)", "isCorrect": true },
+          { "text": "CKKS", "isCorrect": false },
+          { "text": "BFV", "isCorrect": false }
+        ],
+        "explanation": "Zama's implementation uses TFHE (Torus Fully Homomorphic Encryption) with optimizations for blockchain applications."
+      },
+      {
+        "id": 2,
+        "question": "What mathematical structure does TFHE operate on?",
+        "options": [
+          { "text": "Integer rings", "isCorrect": false },
+          { "text": "Torus arithmetic", "isCorrect": true },
+          { "text": "Finite fields", "isCorrect": false },
+          { "text": "Polynomial rings", "isCorrect": false }
+        ],
+        "explanation": "TFHE operates on torus arithmetic, which provides efficient operations and noise management."
+      },
+      {
+        "id": 3,
+        "question": "What is the primary purpose of bootstrapping in TFHE?",
+        "options": [
+          { "text": "To increase computation speed", "isCorrect": false },
+          { "text": "To refresh ciphertexts and manage noise", "isCorrect": true },
+          { "text": "To compress ciphertext size", "isCorrect": false },
+          { "text": "To generate new keys", "isCorrect": false }
+        ],
+        "explanation": "Bootstrapping refreshes ciphertexts to manage noise accumulation, enabling unlimited computation depth."
+      },
+      {
+        "id": 4,
+        "question": "How large are the ciphertext handles used in FHEVM?",
+        "options": [
+          { "text": "16 bytes", "isCorrect": false },
+          { "text": "32 bytes", "isCorrect": true },
+          { "text": "64 bytes", "isCorrect": false },
+          { "text": "128 bytes", "isCorrect": false }
+        ],
+        "explanation": "FHEVM uses 32-byte handles to reference encrypted values stored off-chain."
+      },
+      {
+        "id": 5,
+        "question": "What does symbolic execution enable in FHEVM?",
+        "options": [
+          { "text": "Direct computation on encrypted data on-chain", "isCorrect": false },
+          { "text": "Generation of computation graphs for off-chain processing", "isCorrect": true },
+          { "text": "Automatic key generation", "isCorrect": false },
+          { "text": "Real-time decryption", "isCorrect": false }
+        ],
+        "explanation": "Symbolic execution generates computation graphs that coprocessors interpret to perform actual FHE operations."
+      },
+      {
+        "id": 6,
+        "question": "What ensures deterministic computation results across coprocessors?",
+        "options": [
+          { "text": "Synchronized clocks", "isCorrect": false },
+          { "text": "Deterministic handle derivation and computation graphs", "isCorrect": true },
+          { "text": "Consensus algorithms", "isCorrect": false },
+          { "text": "Identical hardware", "isCorrect": false }
+        ],
+        "explanation": "Deterministic handle derivation and computation graphs ensure all coprocessors produce identical results."
+      },
+      {
+        "id": 7,
+        "question": "What type of access control does the ACL system support?",
+        "options": [
+          { "text": "Only persistent access", "isCorrect": false },
+          { "text": "Fine-grained permissions with persistent, transient, and decryption-specific rights", "isCorrect": true },
+          { "text": "Only public access", "isCorrect": false },
+          { "text": "Binary allow/deny only", "isCorrect": false }
+        ],
+        "explanation": "The ACL system supports fine-grained permissions including persistent, transient, and decryption-specific access rights."
+      },
+      {
+        "id": 8,
+        "question": "How are ACLs replicated across the protocol components?",
+        "options": [
+          { "text": "Through direct database synchronization", "isCorrect": false },
+          { "text": "Through event emission and listening mechanisms", "isCorrect": true },
+          { "text": "Through periodic batch updates", "isCorrect": false },
+          { "text": "Through manual configuration", "isCorrect": false }
+        ],
+        "explanation": "ACLs are replicated through event emission from host contracts and listening mechanisms in coprocessors and Gateway."
+      },
+      {
+        "id": 9,
+        "question": "What makes Zero-Knowledge Proofs lightweight in Zama's implementation?",
+        "options": [
+          { "text": "They're only used for key generation", "isCorrect": false },
+          { "text": "They're only used for input validation, not computation", "isCorrect": true },
+          { "text": "They use simplified algorithms", "isCorrect": false },
+          { "text": "They're optional", "isCorrect": false }
+        ],
+        "explanation": "ZK proofs are lightweight because they're only used for input validation, not for the entire computation process."
+      },
+      {
+        "id": 10,
+        "question": "What is the threshold requirement for the MPC protocol in KMS?",
+        "options": [
+          { "text": "Simple majority (7 out of 13)", "isCorrect": false },
+          { "text": "Supermajority (9 out of 13)", "isCorrect": true },
+          { "text": "Two-thirds majority (9 out of 13)", "isCorrect": false },
+          { "text": "Unanimous (13 out of 13)", "isCorrect": false }
+        ],
+        "explanation": "The MPC protocol requires a supermajority of 9 out of 13 nodes to participate in operations."
+      },
+      {
+        "id": 11,
+        "question": "What cryptographic primitive is used for secret sharing in KMS?",
+        "options": [
+          { "text": "Shamir's Secret Sharing", "isCorrect": true },
+          { "text": "Additive Secret Sharing", "isCorrect": false },
+          { "text": "Verifiable Secret Sharing", "isCorrect": false },
+          { "text": "Threshold Signature Schemes", "isCorrect": false }
+        ],
+        "explanation": "KMS uses threshold secret sharing schemes, typically based on Shamir's Secret Sharing, to distribute private keys."
+      },
+      {
+        "id": 12,
+        "question": "What does 'forward security' mean in the context of key management?",
+        "options": [
+          { "text": "Keys can be used for future operations", "isCorrect": false },
+          { "text": "Compromising current keys doesn't compromise past communications", "isCorrect": true },
+          { "text": "Keys are generated in advance", "isCorrect": false },
+          { "text": "Keys have expiration dates", "isCorrect": false }
+        ],
+        "explanation": "Forward security ensures that compromising current keys doesn't allow decryption of past communications."
+      },
+      {
+        "id": 13,
+        "question": "What enables cross-chain ciphertext bridging?",
+        "options": [
+          { "text": "Identical encryption keys across all chains", "isCorrect": false },
+          { "text": "Standardized protocols and global key composability", "isCorrect": true },
+          { "text": "Direct chain-to-chain communication", "isCorrect": false },
+          { "text": "Centralized bridge contracts", "isCorrect": false }
+        ],
+        "explanation": "Cross-chain bridging is enabled by standardized protocols and global key composability across different blockchains."
+      },
+      {
+        "id": 14,
+        "question": "What optimization technique is used for batched FHE operations?",
+        "options": [
+          { "text": "SIMD (Single Instruction, Multiple Data)", "isCorrect": true },
+          { "text": "Parallel processing only", "isCorrect": false },
+          { "text": "Compression algorithms", "isCorrect": false },
+          { "text": "Caching mechanisms", "isCorrect": false }
+        ],
+        "explanation": "SIMD techniques allow batched operations on multiple encrypted values simultaneously for improved efficiency."
+      },
+      {
+        "id": 15,
+        "question": "What is ciphertext packing in the context of FHE optimization?",
+        "options": [
+          { "text": "Compressing ciphertexts to save space", "isCorrect": false },
+          { "text": "Encoding multiple values in a single ciphertext", "isCorrect": true },
+          { "text": "Grouping ciphertexts by type", "isCorrect": false },
+          { "text": "Encrypting multiple times", "isCorrect": false }
+        ],
+        "explanation": "Ciphertext packing encodes multiple values in a single ciphertext to enable SIMD operations and improve efficiency."
+      },
+      {
+        "id": 16,
+        "question": "What type of security does FHE provide against quantum attacks?",
+        "options": [
+          { "text": "Information-theoretic security", "isCorrect": false },
+          { "text": "Computational security based on lattice problems", "isCorrect": true },
+          { "text": "Perfect security", "isCorrect": false },
+          { "text": "Unconditional security", "isCorrect": false }
+        ],
+        "explanation": "FHE provides computational security based on lattice problems, which are believed to be quantum-resistant."
+      },
+      {
+        "id": 17,
+        "question": "What is semantic security in the context of encrypted data?",
+        "options": [
+          { "text": "The meaning of data is preserved", "isCorrect": false },
+          { "text": "No information about plaintext is leaked from ciphertext", "isCorrect": true },
+          { "text": "Data can be semantically analyzed", "isCorrect": false },
+          { "text": "Encryption preserves data relationships", "isCorrect": false }
+        ],
+        "explanation": "Semantic security ensures that no information about the plaintext can be derived from the ciphertext alone."
+      },
+      {
+        "id": 18,
+        "question": "What is the main challenge with noise management in FHE?",
+        "options": [
+          { "text": "Noise decreases over time", "isCorrect": false },
+          { "text": "Noise accumulates with each operation and can cause decryption failure", "isCorrect": true },
+          { "text": "Noise is completely random", "isCorrect": false },
+          { "text": "Noise improves security", "isCorrect": false }
+        ],
+        "explanation": "Noise accumulates with each FHE operation and must be managed through bootstrapping to prevent decryption failure."
+      },
+      {
+        "id": 19,
+        "question": "What is the purpose of Common Reference Strings (CRS) in ZK proofs?",
+        "options": [
+          { "text": "To encrypt the proofs", "isCorrect": false },
+          { "text": "To provide public parameters for proof generation and verification", "isCorrect": true },
+          { "text": "To identify the prover", "isCorrect": false },
+          { "text": "To compress the proof size", "isCorrect": false }
+        ],
+        "explanation": "CRS provides the public parameters needed for both generating and verifying zero-knowledge proofs."
+      },
+      {
+        "id": 20,
+        "question": "What hardware acceleration is planned for future FHEVM implementations?",
+        "options": [
+          { "text": "Only GPU acceleration", "isCorrect": false },
+          { "text": "FPGAs and ASICs specifically designed for FHE", "isCorrect": true },
+          { "text": "Quantum processors", "isCorrect": false },
+          { "text": "Neuromorphic chips", "isCorrect": false }
+        ],
+        "explanation": "Future implementations will use FPGAs and ASICs specifically designed for FHE operations to achieve thousands of TPS."
+      },
+      {
+        "id": 21,
+        "question": "What is the Byzantine fault tolerance of the current KMS design?",
+        "options": [
+          { "text": "Can tolerate up to 3 faulty nodes", "isCorrect": false },
+          { "text": "Can tolerate up to 4 faulty nodes", "isCorrect": true },
+          { "text": "Can tolerate up to 6 faulty nodes", "isCorrect": false },
+          { "text": "Cannot tolerate any faulty nodes", "isCorrect": false }
+        ],
+        "explanation": "With a 9-out-of-13 threshold, the KMS can tolerate up to 4 Byzantine faulty nodes while maintaining security."
+      },
+      {
+        "id": 22,
+        "question": "What is the main advantage of using handles instead of storing ciphertexts on-chain?",
+        "options": [
+          { "text": "Better security", "isCorrect": false },
+          { "text": "Reduced on-chain storage costs and improved scalability", "isCorrect": true },
+          { "text": "Faster encryption", "isCorrect": false },
+          { "text": "Simpler implementation", "isCorrect": false }
+        ],
+        "explanation": "Using handles reduces on-chain storage costs significantly and improves scalability by keeping large ciphertexts off-chain."
+      },
+      {
+        "id": 23,
+        "question": "What upcoming FHE operation will include overflow checking?",
+        "options": [
+          { "text": "FHE.add", "isCorrect": false },
+          { "text": "FHE.safeAdd", "isCorrect": true },
+          { "text": "FHE.secureAdd", "isCorrect": false },
+          { "text": "FHE.checkedAdd", "isCorrect": false }
+        ],
+        "explanation": "FHE.safeAdd and similar safe operations will include overflow checking for enhanced security."
+      },
+      {
+        "id": 24,
+        "question": "What is the main security consideration for production deployment?",
+        "options": [
+          { "text": "Only key management", "isCorrect": false },
+          { "text": "Comprehensive security audits and compliance requirements", "isCorrect": true },
+          { "text": "Only performance optimization", "isCorrect": false },
+          { "text": "Only network security", "isCorrect": false }
+        ],
+        "explanation": "Production deployment requires comprehensive security audits, compliance requirements, and proper operational procedures."
+      },
+      {
+        "id": 25,
+        "question": "What is the expected timeline for Zama Protocol mainnet launch?",
+        "options": [
+          { "text": "2024", "isCorrect": false },
+          { "text": "2025", "isCorrect": true },
+          { "text": "2026", "isCorrect": false },
+          { "text": "2027", "isCorrect": false }
+        ],
+        "explanation": "The Zama Protocol mainnet is planned for launch in 2025, providing production-ready infrastructure."
+      }
+    ]
+  }
+}

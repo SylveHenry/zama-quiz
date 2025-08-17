@@ -85,25 +85,26 @@ body {
   pointer-events: none;
   z-index: 1;
   overflow: hidden;
+  opacity: 0.4;
 }
 
 .text-line {
   position: absolute;
   white-space: nowrap;
-  font-size: 20px;
-  color: rgba(0, 0, 0, 0.6);
-  font-weight: 600;
-  letter-spacing: 1px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .text-line:nth-child(odd) {
-  animation: flow-right 120s linear infinite;
-  color: white;
+  animation: flow-right 140s linear infinite;
+  color: rgba(251, 191, 36, 0.3);
 }
 
 .text-line:nth-child(even) {
-  animation: flow-left 130s linear infinite;
-  color: rgba(0, 0, 0, 0.8);
+  animation: flow-left 160s linear infinite;
+  color: rgba(245, 158, 11, 0.25);
 }
 
 @keyframes rotate {
