@@ -1,10 +1,12 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { Clock, CheckCircle, XCircle, Award, RotateCcw } from 'lucide-react';
+import { Clock, CheckCircle, XCircle, Award, RotateCcw, Twitter } from 'lucide-react';
+import Image from 'next/image';
 import { useCourse } from '../contexts/CourseContext';
 import CancelConfirmModal from './CancelConfirmModal';
 import quizQuestions from '../data/quizQuestions.json';
+import { shareToTwitter, generateCertificate, downloadCertificate, CertificateData } from '../utils/certificateGenerator';
 
 interface Question {
   id: number;
@@ -32,14 +34,24 @@ const DifficultyQuiz: React.FC<DifficultyQuizProps> = ({ difficulty, onQuizCompl
   const [score, setScore] = useState(0);
   const [percentage, setPercentage] = useState(0);
   const [showCancelModal, setShowCancelModal] = useState(false);
+  const [certificateDataUrl, setCertificateDataUrl] = useState<string | null>(null);
+
+  // Shuffle questions and their answer options
+  const shuffleQuestionsAndOptions = useCallback((questionsArray: Question[]) => {
+    return questionsArray.map(question => ({
+      ...question,
+      options: [...question.options].sort(() => Math.random() - 0.5)
+    }));
+  }, []);
 
   // Shuffle and select 20 random questions
   useEffect(() => {
     const allQuestions = quizQuestions[difficulty].questions;
     const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
     const selected = shuffled.slice(0, 20);
-    setQuestions(selected);
-  }, [difficulty]);
+    const shuffledWithOptions = shuffleQuestionsAndOptions(selected);
+    setQuestions(shuffledWithOptions);
+  }, [difficulty, shuffleQuestionsAndOptions]);
 
   const formatTime = (seconds: number) => {
     const minutes = Math.floor(seconds / 60);
@@ -54,7 +66,7 @@ const DifficultyQuiz: React.FC<DifficultyQuizProps> = ({ difficulty, onQuizCompl
     }));
   };
 
-  const handleSubmitQuiz = useCallback(() => {
+  const handleSubmitQuiz = useCallback(async () => {
     let correctAnswers = 0;
     questions.forEach((question, index) => {
       const selectedAnswer = selectedAnswers[index];
@@ -69,6 +81,24 @@ const DifficultyQuiz: React.FC<DifficultyQuizProps> = ({ difficulty, onQuizCompl
     setScore(finalScore);
     setPercentage(finalPercentage);
     setShowResults(true);
+    
+    // Generate certificate if score is 80% or higher
+    if (finalPercentage >= 80) {
+      try {
+        const certificateData: CertificateData = {
+          score: finalScore,
+          totalQuestions: questions.length,
+          percentage: finalPercentage,
+          completionDate: new Date().toLocaleDateString(),
+          difficulty: difficulty
+        };
+        
+        const dataUrl = await generateCertificate(certificateData);
+        setCertificateDataUrl(dataUrl);
+      } catch (error) {
+        console.error('Failed to generate certificate:', error);
+      }
+    }
     
     // Update course context
     completeQuiz(difficulty, finalPercentage);
@@ -96,12 +126,14 @@ const DifficultyQuiz: React.FC<DifficultyQuizProps> = ({ difficulty, onQuizCompl
     setQuizStarted(false);
     setScore(0);
     setPercentage(0);
+    setCertificateDataUrl(null);
     
-    // Reshuffle questions
+    // Reshuffle questions and options
     const allQuestions = quizQuestions[difficulty].questions;
     const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
     const selected = shuffled.slice(0, 20);
-    setQuestions(selected);
+    const shuffledWithOptions = shuffleQuestionsAndOptions(selected);
+    setQuestions(shuffledWithOptions);
   };
 
   const getDifficultyColor = () => {
@@ -263,7 +295,7 @@ const DifficultyQuiz: React.FC<DifficultyQuizProps> = ({ difficulty, onQuizCompl
                     <CheckCircle className="w-6 h-6 text-green-600" />
                   </div>
                   <p className="text-green-800 font-semibold bg-gradient-to-r from-green-800 to-green-700 bg-clip-text text-transparent">Congratulations! You&apos;ve earned a certificate!</p>
-                  <p className="text-green-700 text-sm mt-1">Your certificate will be generated automatically.</p>
+                  <p className="text-green-700 text-sm mt-1">Your certificate has been generated below.</p>
                 </div>
               </div>
             )}
@@ -307,6 +339,51 @@ const DifficultyQuiz: React.FC<DifficultyQuizProps> = ({ difficulty, onQuizCompl
                 );
               })}
             </div>
+          </div>
+        </div>
+
+        {/* Certificate Display Section */}
+        {percentage >= 80 && certificateDataUrl && (
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 p-6 mb-6 shadow-xl relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 to-emerald-50/30 rounded-2xl"></div>
+            <div className="relative z-10 text-center">
+              <h3 className="text-xl font-semibold mb-4 bg-gradient-to-r from-green-800 to-green-600 bg-clip-text text-transparent">Your Certificate</h3>
+              <div className="mb-4 p-4 bg-white/50 backdrop-blur-sm rounded-xl border border-green-200/50">
+                <Image 
+                  src={certificateDataUrl} 
+                  alt="Certificate of Completion" 
+                  className="max-w-full h-auto rounded-lg shadow-lg mx-auto"
+                  style={{ maxHeight: '400px' }}
+                  width={800}
+                  height={600}
+                />
+              </div>
+              <button
+                onClick={() => certificateDataUrl && downloadCertificate(certificateDataUrl, `zama-${difficulty}-certificate.png`)}
+                className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-semibold hover:from-green-600 hover:to-green-700 hover:scale-105 transition-all duration-200 shadow-xl border border-white/20 backdrop-blur-sm relative overflow-hidden group"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                <Award className="w-5 h-5 relative z-10" />
+                <span className="relative z-10">Download Certificate</span>
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Twitter Share Section */}
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 p-6 mb-6 shadow-xl relative">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-purple-50/30 rounded-2xl"></div>
+          <div className="relative z-10 text-center">
+            <h3 className="text-xl font-semibold mb-4 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">Share Your Achievement!</h3>
+            <p className="text-gray-600 mb-4">Let others know about your quiz performance and invite them to test their knowledge!</p>
+            <button
+               onClick={() => shareToTwitter(score, questions.length, percentage, difficulty)}
+               className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl font-semibold hover:from-blue-600 hover:to-blue-700 hover:scale-105 transition-all duration-200 shadow-xl border border-white/20 backdrop-blur-sm relative overflow-hidden group"
+             >
+              <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+              <Twitter className="w-5 h-5 relative z-10" />
+              <span className="relative z-10">Share on Twitter</span>
+            </button>
           </div>
         </div>
 

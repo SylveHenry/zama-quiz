@@ -8,6 +8,7 @@ import { QuizProvider } from '../../contexts/QuizContext';
 import { CourseProvider, useCourse } from '../../contexts/CourseContext';
 import courseContent from '../../data/courseContent.json';
 import { BookOpen, Award } from 'lucide-react';
+import { generateCertificate, downloadCertificate, CertificateData } from '../../utils/certificateGenerator';
 
 const IntermediateContent: React.FC = () => {
   const [currentView, setCurrentView] = useState<'overview' | 'course' | 'quiz'>('overview');
@@ -29,48 +30,18 @@ const IntermediateContent: React.FC = () => {
     }, 3000);
   };
 
-  const generateCertificate = () => {
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    if (ctx) {
-      canvas.width = 800;
-      canvas.height = 600;
+  const handleGenerateCertificate = async () => {
+    if (progress.intermediate.quizScore) {
+      const certificateData: CertificateData = {
+        score: Math.round((progress.intermediate.quizScore / 100) * 20), // Convert percentage to score out of 20
+        totalQuestions: 20,
+        percentage: progress.intermediate.quizScore,
+        completionDate: new Date().toLocaleDateString(),
+        difficulty: 'intermediate'
+      };
       
-      // Certificate background
-      ctx.fillStyle = '#f8f9fa';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      
-      // Border
-      ctx.strokeStyle = '#3b82f6';
-      ctx.lineWidth = 8;
-      ctx.strokeRect(20, 20, canvas.width - 40, canvas.height - 40);
-      
-      // Title
-      ctx.fillStyle = '#1f2937';
-      ctx.font = 'bold 48px Arial';
-      ctx.textAlign = 'center';
-      ctx.fillText('Certificate of Completion', canvas.width / 2, 120);
-      
-      // Subtitle
-      ctx.font = '24px Arial';
-      ctx.fillText('Zama Protocol - Intermediate Level', canvas.width / 2, 180);
-      
-      // Score
-      ctx.font = 'bold 32px Arial';
-      ctx.fillStyle = '#3b82f6';
-      ctx.fillText(`Score: ${progress.intermediate.quizScore}%`, canvas.width / 2, 280);
-      
-      // Date
-      ctx.font = '18px Arial';
-      ctx.fillStyle = '#6b7280';
-      const date = new Date().toLocaleDateString();
-      ctx.fillText(`Completed on ${date}`, canvas.width / 2, 350);
-      
-      // Download
-      const link = document.createElement('a');
-      link.download = 'zama-intermediate-certificate.png';
-      link.href = canvas.toDataURL();
-      link.click();
+      const dataUrl = await generateCertificate(certificateData);
+      downloadCertificate(dataUrl, 'zama-intermediate-certificate.png');
     }
   };
 
@@ -152,7 +123,7 @@ const IntermediateContent: React.FC = () => {
                 You&apos;ve successfully completed the Intermediate course with a score of {progress.intermediate.quizScore}%.
               </p>
               <button
-                onClick={generateCertificate}
+                onClick={handleGenerateCertificate}
                 className="px-6 py-3 bg-yellow-600 text-white rounded-lg font-semibold hover:bg-yellow-700 transition-colors"
               >
                 Download Certificate

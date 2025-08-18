@@ -3,6 +3,7 @@ export interface CertificateData {
   totalQuestions: number;
   percentage: number;
   completionDate: string;
+  difficulty: string;
 }
 
 const getScoreMessage = (percentage: number): string => {
@@ -55,32 +56,38 @@ export const generateCertificate = async (data: CertificateData): Promise<string
   ctx.fillStyle = '#374151'; // gray-700
   ctx.fillText('Zama Privacy Quiz', canvas.width / 2, 170);
 
+  // Difficulty level
+  ctx.font = 'bold 28px Arial, sans-serif';
+  ctx.fillStyle = '#7C3AED'; // violet-600
+  const difficultyText = `${data.difficulty.charAt(0).toUpperCase() + data.difficulty.slice(1)} Level`;
+  ctx.fillText(difficultyText, canvas.width / 2, 205);
+
   // Achievement text
   ctx.font = '24px Arial, sans-serif';
   ctx.fillStyle = '#4B5563'; // gray-600
-  ctx.fillText('This certifies that you have successfully completed', canvas.width / 2, 220);
-  ctx.fillText('the Zama Privacy Quiz with a score of', canvas.width / 2, 250);
+  ctx.fillText('This certifies that you have successfully completed', canvas.width / 2, 240);
+  ctx.fillText('the Zama Privacy Quiz with a score of', canvas.width / 2, 270);
 
   // Score
   ctx.font = 'bold 64px Arial, sans-serif';
   ctx.fillStyle = '#DC2626'; // red-600
-  ctx.fillText(`${data.score}/${data.totalQuestions}`, canvas.width / 2, 320);
+  ctx.fillText(`${data.score}/${data.totalQuestions}`, canvas.width / 2, 340);
 
   // Percentage
   ctx.font = 'bold 36px Arial, sans-serif';
   ctx.fillStyle = '#EA580C'; // orange-600
-  ctx.fillText(`(${data.percentage}%)`, canvas.width / 2, 360);
+  ctx.fillText(`(${data.percentage}%)`, canvas.width / 2, 380);
 
   // Congratulations message
   ctx.font = '20px Arial, sans-serif';
   ctx.fillStyle = '#059669'; // emerald-600
   const scoreMessage = getScoreMessage(data.percentage);
-  ctx.fillText(scoreMessage, canvas.width / 2, 420);
+  ctx.fillText(scoreMessage, canvas.width / 2, 440);
 
   // Date
   ctx.font = '18px Arial, sans-serif';
   ctx.fillStyle = '#6B7280'; // gray-500
-  ctx.fillText(`Completed on ${data.completionDate}`, canvas.width / 2, 460);
+  ctx.fillText(`Completed on ${data.completionDate}`, canvas.width / 2, 480);
 
   // Powered by
   ctx.font = '16px Arial, sans-serif';
@@ -106,8 +113,9 @@ export const downloadCertificate = (dataUrl: string, filename: string = 'zama-pr
   document.body.removeChild(link);
 };
 
-export const shareToTwitter = async (score: number, totalQuestions: number, percentage: number) => {
-  const tweetText = `🎉 Just completed the Zama Privacy Quiz with a score of ${score}/${totalQuestions} (${percentage}%)! 🔐\n\nTest your privacy knowledge and join the FHE revolution! 🚀\nTest your knowledge: https://zama-quiz.vercel.app/\n\n@zama_fhe @Zeusfi_bit\n#ZamaFHE #PrivacyFirst #Cryptography`;
+export const shareToTwitter = async (score: number, totalQuestions: number, percentage: number, difficulty?: string) => {
+  const difficultyText = difficulty ? ` (${difficulty.charAt(0).toUpperCase() + difficulty.slice(1)} Level)` : '';
+  const tweetText = `🎉 Just completed the Zama Privacy Quiz${difficultyText} with a score of ${score}/${totalQuestions} (${percentage}%)! 🔐\n\nTest your privacy knowledge and join the FHE revolution! 🚀\nTest your knowledge: https://zama-quiz.vercel.app/\n\n@zama_fhe @Zeusfi_bit\n#ZamaFHE #PrivacyFirst #Cryptography`;
   
   // Priority 1: Direct Twitter Share Link (text-only)
   const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
